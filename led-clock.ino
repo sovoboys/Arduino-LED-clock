@@ -6,25 +6,39 @@
   @see README.md for more info
  */
 
+// lib for manage LEDs stripe
 #include <FastLED.h>
+
+// lib for get (or set) DS3231 module
 #include <DS3231.h>
+
+// lib for prevent switch bouncing problem in electronic term, @see https://www.pololu.com/docs/0J16/4 
 #include <Bounce2.h>
 
+// pin for LEDs stripe signal
 #define LED_PIN             9
-#define SWITCH_B_PIN        3
-#define SWITCH_F_PIN        5
-#define SWITCH_MODE_PIN     7
+
+// pins for switches (buttons), think about an ordinary digital watch, there's a button to switch (change) mode (to adjust hour, minute, date, etc.), another buttons to increase/ decrease values of current mode.
+#define SWITCH_B_PIN        3   // backward btn / decrease btn
+#define SWITCH_F_PIN        5   // forward btn / increase btn
+#define SWITCH_MODE_PIN     7   // change mode btn
+
+// pin for input sound from MAX9812 module
 #define MIC_PIN             A0
+
+// pin for DS3231, this is basically used for references
 //      SDA_PIN             A4  //  ** MUST BE FIXED, ONLY REF
 //      SCL_PIN             A5  //  ** MUST BE FIXED, ONLY REF
 
-// real leds, in case you want to test to > 60 strip
+// number of LEDs of your stripe. you may have to update this if your stripe has more than 60 LEDs, for example - for testing.
 #define LEDS_NUM            60
-// where is first LED in strip starts at in the clock?
-#define SERIES_LED_START    30
-// mine starts from the most bottom (6 o clock), so it starts at (number) 30
 
-// (clap) sound tolarence, less means more sensitive
+// to define where the FIRST LED of the stripe is, for example,
+//  if your stripe starts its FIRST LED on the very top of the clock (at 12 o'clock) - so this value must be 0
+//  if your stripe starts its FIRST LED on the very bottom of the clock (at 6 o'clock) - so this value must be 30
+#define SERIES_LED_START    30
+
+// (clap) sound tolarence, less value means more sensitive
 #define SOUND_TOLARENCE     45
 
 // brightness values (as levels), some natural between 1 and 255
@@ -34,7 +48,7 @@
 #define BRIGHTNESS_4        100
 #define BRIGHTNESS_MAX      120
 
-// modes
+// modes reference number
 #define SWITCH_MODE_INIT    0
 #define SWITCH_MODE_H       1
 #define SWITCH_MODE_I       2
