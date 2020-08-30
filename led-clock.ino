@@ -1,7 +1,9 @@
 /*
-  Fuclock
+  LED clock using Arduino and one 60-LEDs stripe
   Version 1.0.1a
-  Copyright (c) 2018 Phongphatt Cheewahkidakarn (https://www.sovoboys.net/about/ihut/)
+  Copyright (c) 2018 - P. Cheewahkidakarn (https://www.sovoboys.net/about/ihut/)
+  
+  @see README.md
  */
 
 #include <FastLED.h>
