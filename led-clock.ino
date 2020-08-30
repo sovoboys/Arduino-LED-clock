@@ -1,9 +1,9 @@
 /*
   LED clock using Arduino and one 60-LEDs stripe
-  Version 1.0.1a
+  @version 1.0.1a
   Copyright (c) 2018 - P. Cheewahkidakarn (https://www.sovoboys.net/about/ihut/)
   
-  @see README.md
+  @see README.md for more info
  */
 
 #include <FastLED.h>
